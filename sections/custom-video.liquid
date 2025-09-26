@@ -1,0 +1,247 @@
+
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --control-bg: rgba(0, 0, 0, 0.7);
+            --progress-color: #3498db;
+            --hover-color: #2980b9;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        
+        .header p {
+            margin: 10px 0 0;
+            opacity: 0.9;
+        }
+        
+        .player-container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .player-wrapper {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+        }
+        
+        /* 自定义VidStack样式 */
+        media-player {
+            --media-brand: var(--primary-color);
+            --media-control-background: var(--control-bg);
+            --media-control-hover-background: var(--hover-color);
+            --media-range-track-progress: var(--progress-color);
+            border-radius: 8px;
+            background-color: #000;
+        }
+        
+        .instructions {
+            padding: 20px;
+            background-color: #f1f8ff;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .instructions h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .code-example {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        
+        .video-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .video-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .video-id {
+            background-color: #f1f8ff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .video-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+    <!-- 引入VidStack样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack@latest/styles/base.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack@latest/styles/buttons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack@latest/styles/sliders.css" />
+
+    <div class="container">
+        <div class="header">
+            <h1>Shopify VidStack YouTube播放器</h1>
+            <p>演示如何从section.settings.video获取YouTube视频ID并嵌入播放器</p>
+        </div>
+        
+        <div class="player-container">
+            <div class="video-info">
+                <div class="video-title">产品展示视频</div>
+                <div class="video-id">视频ID: {% raw %}{{ video_id }}{% endraw %}</div>
+            </div>
+            
+            <div class="player-wrapper">
+                <!-- 
+                  在Shopify Liquid中，实际代码类似于：
+                  {% liquid
+                    assign video_url = section.settings.video
+                    if video_url contains 'youtube.com/watch?v='
+                      assign video_id = video_url | split: 'v=' | last | split: '&' | first
+                    elsif video_url contains 'youtu.be/'
+                      assign video_id = video_url | split: '/' | last
+                    else
+                      assign video_id = video_url
+                    endif
+                  %}
+                -->
+                
+                <media-player 
+                    src="youtube/{% raw %}{{ video_id }}{% endraw %}" 
+                    controls
+                    playsinline
+                    style="--media-aspect-ratio: 16/9;"
+                >
+                    <media-outlet>
+                        <!-- 加载和错误状态 -->
+                        <media-poster
+                            alt="视频封面"
+                            style="--media-object-fit: cover;"
+                        ></media-poster>
+                        <media-loading></media-loading>
+                    </media-outlet>
+                    
+                    <!-- 控制栏 -->
+                    <media-controls>
+                        <media-controls-group>
+                            <media-play-button></media-play-button>
+                            <media-mute-button></media-mute-button>
+                            <media-volume-slider></media-volume-slider>
+                            <media-time-slider></media-time-slider>
+                            <media-time></media-time>
+                            <media-pip-button></media-pip-button>
+                            <media-fullscreen-button></media-fullscreen-button>
+                        </media-controls-group>
+                    </media-controls>
+                </media-player>
+            </div>
+            
+            <div class="instructions">
+                <h3>实现说明</h3>
+                <p>在Shopify主题中，您需要从<code>section.settings.video</code>提取YouTube视频ID：</p>
+                
+                <div class="code-example">
+                    {% raw %}
+{% liquid
+  assign video_url = section.settings.video
+  if video_url contains 'youtube.com/watch?v='
+    assign video_id = video_url | split: 'v=' | last | split: '&' | first
+  elsif video_url contains 'youtu.be/'
+    assign video_id = video_url | split: '/' | last
+  else
+    assign video_id = video_url
+  endif
+%}
+                    {% endraw %}
+                </div>
+                
+                <p>然后可以在VidStack播放器中使用：<code>src="youtube/{{ video_id }}"</code></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>本示例演示如何在Shopify中使用VidStack播放器嵌入YouTube视频</p>
+    </div>
+
+    <!-- 引入VidStack脚本 -->
+    <script type="module">
+        import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/vidstack@latest/define/+esm';
+        
+        // 定义自定义元素
+        defineCustomElements();
+        
+        // 模拟从Shopify设置中获取视频ID
+        // 在实际Shopify环境中，这部分由Liquid模板处理
+        document.addEventListener('DOMContentLoaded', function() {
+            // 这里模拟从URL参数获取视频ID，实际应从section.settings.video获取
+            const urlParams = new URLSearchParams(window.location.search);
+            const demoVideoId = urlParams.get('video_id') || '_ZCGTm6s4h8';
+            
+            // 更新播放器
+            const player = document.querySelector('media-player');
+            if (player) {
+                player.src = `youtube/${demoVideoId}`;
+                
+                // 更新显示的ID
+                const videoIdElement = document.querySelector('.video-id');
+                if (videoIdElement) {
+                    videoIdElement.textContent = `视频ID: ${demoVideoId}`;
+                }
+            }
+        });
+    </script>

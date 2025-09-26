@@ -1,0 +1,143 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "c37f52e3-4f68-4f51-945f-104679dc0e87": {
+      "type": "page-banner",
+      "disabled": true,
+      "settings": {
+        "title": "DOWNLOAD",
+        "text": "",
+        "content_color": "#ffffff"
+      }
+    },
+    "06ddf49a-8411-4d56-b770-7fd3e69a820d": {
+      "type": "download-search-bar",
+      "blocks": {
+        "0543d81f-2763-4525-bbe9-9fd2546f283b": {
+          "type": "text_block",
+          "settings": {
+            "title": "BASEBALL"
+          }
+        },
+        "1976fb23-b033-438d-bd52-ae53dda37eba": {
+          "type": "text_block",
+          "settings": {
+            "title": "TENNIS"
+          }
+        },
+        "a87f0d2e-3df3-4e7c-a893-66851a67eb91": {
+          "type": "text_block",
+          "settings": {
+            "title": "PICKEBALL"
+          }
+        },
+        "7d3405f4-e1da-48dc-9438-c48f1d0623ce": {
+          "type": "text_block",
+          "settings": {
+            "title": "PINGPONG"
+          }
+        }
+      },
+      "block_order": [
+        "0543d81f-2763-4525-bbe9-9fd2546f283b",
+        "1976fb23-b033-438d-bd52-ae53dda37eba",
+        "a87f0d2e-3df3-4e7c-a893-66851a67eb91",
+        "7d3405f4-e1da-48dc-9438-c48f1d0623ce"
+      ],
+      "disabled": true,
+      "settings": {
+        "select_label": "SELECT PRODUCT TYPE:"
+      }
+    },
+    "download_line_Mm7CLY": {
+      "type": "download-line",
+      "blocks": {
+        "item_tETBYr": {
+          "type": "item",
+          "repeater": "{{ page.metafields.custom.new_download.value }}",
+          "settings": {
+            "title": "{{ block.repeater.model.value }}",
+            "image": "{{ block.repeater.image.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "item_tETBYr"
+      ],
+      "disabled": true,
+      "settings": {
+        "field": "",
+        "title": "BASEBALL",
+        "popup_title": "MANUALS & SOFTWARE",
+        "desc": "Here you will find user manuals, device drivers and softwares for a wide range of our products."
+      }
+    },
+    "download_line_KBUVaG": {
+      "type": "download-line",
+      "blocks": {
+        "item_zFeMbC": {
+          "type": "item",
+          "repeater": "{{ page.metafields.custom.new_download_line_2.value }}",
+          "settings": {
+            "title": "{{ block.repeater.model.value }}",
+            "image": "{{ block.repeater.image.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "item_zFeMbC"
+      ],
+      "disabled": true,
+      "settings": {
+        "field": "",
+        "title": "第二分类",
+        "popup_title": "MANUALS & SOFTWARE",
+        "desc": "不对Here you will find user manuals, device drivers and softwares for a wide range of our products."
+      }
+    },
+    "featured_collection_rnJcnc": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Featured collection",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "accessories",
+        "products_to_show": 6,
+        "columns_desktop": 5,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "c37f52e3-4f68-4f51-945f-104679dc0e87",
+    "06ddf49a-8411-4d56-b770-7fd3e69a820d",
+    "download_line_Mm7CLY",
+    "download_line_KBUVaG",
+    "featured_collection_rnJcnc"
+  ]
+}

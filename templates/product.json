@@ -1,0 +1,238 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating_3j3JAU": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "complementary_4UJwHA": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "make_collapsible_row": true,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 2,
+            "pagination_style": "dots",
+            "image_ratio": "square",
+            "enable_quick_add": true
+          }
+        },
+        "collapsible_tab_xEBEmh": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Model Info",
+            "icon": "silhouette",
+            "content": "<p>{{ product.metafields.models.model_info.value.name.value }} is {{ product.metafields.models.model_info.value.height | metafield_tag }} and wearing size {{ product.metafields.modal.wearing_size.value }} .<\/p><p>{{ product.metafields.models.model_info.value.name.value }}'s measurements:<\/p><ul><li>Bust: {{ product.metafields.models.model_info.value.bust | metafield_tag }}<\/li><li>Waist: {{ product.metafields.models.model_info.value.waist | metafield_tag }}<\/li><li>Hips: {{ product.metafields.models.model_info.value.hips | metafield_tag }}<\/li><\/ul>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "icon_with_text_3dyNGP": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "heading_1": "Heading",
+            "icon_2": "return",
+            "heading_2": "Heading",
+            "icon_3": "truck",
+            "heading_3": "Heading"
+          }
+        },
+        "popup_CV3Wa3": {
+          "type": "popup",
+          "settings": {
+            "text": "Pop-up link text",
+            "page": "about-us"
+          }
+        },
+        "countdown_CCminW": {
+          "type": "countdown",
+          "settings": {
+            "show_countdown": true,
+            "discount_title": "test time",
+            "end_date": "2024-11-3",
+            "end_time": "11:59",
+            "period": "am",
+            "text_size": 12,
+            "text_size_mobile": 6,
+            "end_message": "<p>Offer has expired<\/p>",
+            "hide_on_complete": false
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "rating_3j3JAU",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "complementary_4UJwHA",
+        "collapsible_tab_xEBEmh",
+        "share",
+        "icon_with_text_3dyNGP",
+        "popup_CV3Wa3",
+        "countdown_CCminW"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "quick_order_list_9CtHEN": {
+      "type": "quick-order-list",
+      "settings": {
+        "show_image": false,
+        "show_sku": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "diamond",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "collection_list_g7H9dk": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_peg36E": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_cktiFd": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_KNtKfh": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_peg36E",
+        "featured_collection_cktiFd",
+        "featured_collection_KNtKfh"
+      ],
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17546383701dd4b22e": {
+      "type": "apps",
+      "blocks": {
+        "lensadvisor_select_lenses_app_app_block_eA7BDa": {
+          "type": "shopify:\/\/apps\/lensadvisor-select-lenses-app\/blocks\/app-block\/86552bcb-0c5c-439e-b59c-d8577012ea59",
+          "settings": {
+            "hide_add_to_cart": true,
+            "use_quick_view": false
+          }
+        }
+      },
+      "block_order": [
+        "lensadvisor_select_lenses_app_app_block_eA7BDa"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "quick_order_list_9CtHEN",
+    "related-products",
+    "collection_list_g7H9dk",
+    "17546383701dd4b22e"
+  ]
+}

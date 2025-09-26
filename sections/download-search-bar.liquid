@@ -1,0 +1,150 @@
+<div class="download-search-bar download-search-bar-{{ section.id }}">
+    <div class="download-lists">
+      <label>{% if section.settings.select_label != blank %}{{ section.settings.select_label }} {% else %} SELECT PRODUCT TYPE:{% endif %}</label>
+      {% if section.blocks.size > 0 %}
+      <select id="radio-click">
+        <option value="all" class="active">All</option>
+        {% for block in section.blocks %}
+        {% if block.settings.title != blank %}
+        <option value="{{ block.settings.title | handle }}">{{ block.settings.title }}</option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      {% endif %}
+    </div>
+    <div class="searchall-box">
+      <div id="dowload_search_all">
+        <input class="textbox" id="searchall" type="text" name="searchall" placeholder="Search...">
+        <button class="btn" id="search_btn">GO</button>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="search_no_result" style="display:none;">
+      No result!
+    </div>
+  </div>
+  
+  {{'download.scss.css' | asset_url | stylesheet_tag}}
+  <script>
+    $(document).ready(function() {
+      // Download Select
+      var downloadLen = $(".download_list .download_item_box").length;
+      if(downloadLen){
+        var clickedValue = $('#radio-click').val().toLowerCase().trim().replace(/\s+/g, '-'); // 获取选择的值并转换为小写，去除头尾空格，并将空格替换为"-"
+        $(".download-search-bar .download-lists #radio-click").change(function(){
+          var clickedValue = $(this).val().toLowerCase().trim().replace(/\s+/g, '-'); // 获取选择的值并转换为小写，去除头尾空格，并将空格替换为"-"
+          if(clickedValue == 'all') {
+            $(`.download_list`).css("display", "block");
+          }else {
+            $(".download_list").css("display", "none");
+            $(`.${clickedValue}`).css("display", "block");
+          }
+          search(downloadLen);
+        });
+        // Download Search
+        $(".download-search-bar .searchall-box #dowload_search_all #search_btn").click(function(){
+          search(downloadLen);
+        });
+        $(".download-search-bar .searchall-box #dowload_search_all #searchall").keypress(function(e) {
+          if(e.which == 13) {
+            search(downloadLen);
+          }
+        });
+        function search(downloadLen) {
+          var str = $(".download-search-bar .searchall-box #dowload_search_all #searchall").val().trim().toLowerCase();
+          if(str == '') {
+            $(`.download_list`).css("display", "block");
+            $(".download_list .download_list_title").css("display", "block");
+            $(".download_list .download_item_box").css("display", "block");
+          }else {
+            $(".download_list .download_list_title").css("display", "none");
+            $(".download_list").css("display", "none");
+            for(let i = 0; i<downloadLen; i++) {
+              var tempStr = $(".download_list .download_item_box .download_item .download_item_title").eq(i).text().toLowerCase();
+              if(tempStr.indexOf(str) != -1) {
+                $(".download_list .download_item_box").eq(i).parent().siblings(".download_list_title").css("display", "block");
+                $(".download_list .download_item_box").eq(i).siblings(".download_list_title").css("display", "block");
+                $(".download_list .download_item_box").eq(i).css("display", "block");
+              }else {
+                $(".download_list .download_item_box").eq(i).css("display", "none");
+              }
+            }
+          }
+          var clickedValue = $(".download-search-bar .download-lists #radio-click").val();
+          if(clickedValue == 'all') {
+            $(`.download_list`).css("display", "block");
+          }else {
+            $(".download_list").css("display", "none");
+            $(`.${clickedValue}`).css("display", "block");
+          }
+          // ...
+          $(".download_list").each(function() {
+            var downloadItemBoxCount = $(this).find('.download_item_box').length;
+            var hiddenDownloadItemBoxCount = $(this).find('.download_item_box:hidden').length;
+            
+            if (downloadItemBoxCount === hiddenDownloadItemBoxCount) {
+              $(this).hide();
+              console.log("hide")
+            } else {
+              $(this).show();
+              console.log("show")
+            }
+          });
+          // ...
+          var hasVisibleDownloadList = false;
+
+          $(".download_list").each(function() {
+            var downloadList = $(this);
+            var isVisible = downloadList.find('.download_item_box:visible').length > 0;
+    
+            downloadList.css("display", isVisible ? "block" : "none");
+    
+            if (isVisible) {
+              hasVisibleDownloadList = true;
+            }
+          });
+    
+          $(".search_no_result").css("display", hasVisibleDownloadList ? "none" : "flex");
+        }
+      }
+    });
+  </script>
+  {% schema %}
+    {
+      "name": "Download Search Bar",
+      "class": "download-page-search page-width",
+      "settings": [
+        {
+          "type": "text",
+          "id": "select_label",
+          "label": "Select Label Text",
+          "default": "SELECT PRODUCT TYPE:"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "text_block",
+          "name": "Select Option",
+          "settings": [
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Select Option"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Download Search Bar"
+        }
+      ]
+    }
+  {% endschema %}
+  
+  {% stylesheet %}
+  {% endstylesheet %}
+  
+  {% javascript %}
+  {% endjavascript %}
+  

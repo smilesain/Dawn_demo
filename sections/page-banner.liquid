@@ -1,0 +1,109 @@
+<style>
+  .page-banner .container{
+    position: relative;
+  }
+  .page-banner .container .content-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+  }
+  .page-banner .container .content-box .title{
+    font-size: 36px;
+    color: {{ section.settings.content_color }};
+    font-weight: 700;
+  }
+  .page-banner .container .content-box .text{
+    color: {{ section.settings.content_color }};
+    font-size: 16px;
+    line-height: 1.3;
+    margin-top: 10px;
+  }
+  @media only screen and (max-width: 950px){
+    .page-banner .container .content-box{
+      width: 70%;
+    }
+    .page-banner .container .content-box .text{
+      color: {{ section.settings.content_color }};
+      font-size: 14px;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    .page-banner .container .content-box .title{
+      font-size: 24px;
+    }
+  }
+  @media only screen and (max-width: 590px){
+    .page-banner .container .content-box{
+      width: 90%;
+    }
+  }
+  
+</style>
+
+<div class="page-banner">
+  <div class="container">
+    {% if section.settings.img != blank %}
+      <img class="b-lazy hide-mb" src="{{ section.settings.img | img_url:'master' }}" data-src="{{ section.settings.img | img_url:'master' }}">
+    {% endif %}
+    {% if section.settings.img_mb != blank %}
+      <img class="b-lazy hide-pc" src="{{ section.settings.img_mb | img_url:'master' }}" data-src="{{ section.settings.img_mb | img_url:'master' }}">
+    {% endif %}
+    <div class="content-box">
+      {% if section.settings.title != blank %}
+        <div class="title fadein">{{ section.settings.title }}</div>  
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <div class="text fadein fadein2">{{ section.settings.text }}</div>  
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.page-banner .container .content-box .title').addClass('active');
+    $('.page-banner .container .content-box .text').addClass('active');
+  })
+</script>
+
+{% schema %}
+  {
+    "name": "Page Banner",
+    "settings": [
+       {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mb",
+          "label": "Image mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "content_color",
+          "label": "Content Color",
+          "default": "#ffffff"
+        }
+    ],
+  "presets": [
+    {
+      "name": "Page Banner"
+    }
+  ]
+    
+  }
+{% endschema %}

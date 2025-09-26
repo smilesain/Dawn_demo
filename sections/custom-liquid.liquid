@@ -1,0 +1,147 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding">
+    {{ section.settings.custom_liquid }}
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        /* 设置Swiper容器的样式 */
+        .swiper-container {
+            width: 600px;
+            height: 400px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .swiper-slide {
+            width: 120px;
+            height: 200px;
+            opacity: 0.7;
+            transition: all 0.5s;
+            position: absolute;
+        }
+        /* 将图片放置为 V 字型 */
+        .swiper-slide:nth-child(1) { left: 50%; top: 50%; transform: translate(-250%, -50%); z-index: 1; }
+        .swiper-slide:nth-child(2) { left: 50%; top: 50%; transform: translate(-150%, -80%); z-index: 2; }
+        .swiper-slide:nth-child(3) { left: 50%; top: 50%; transform: translate(-50%, -90%); z-index: 3; }
+        .swiper-slide:nth-child(4) { left: 50%; top: 50%; transform: translate(0, -100%); z-index: 4; }
+        .swiper-slide:nth-child(5) { left: 50%; top: 50%; transform: translate(50%, -90%); z-index: 3; }
+        .swiper-slide:nth-child(6) { left: 50%; top: 50%; transform: translate(150%, -80%); z-index: 2; }
+        .swiper-slide:nth-child(7) { left: 50%; top: 50%; transform: translate(250%, -50%); z-index: 1; }
+        
+        /* 正面展示的图片 */
+        .swiper-slide-active {
+            transform: translate(0%, 0%) !important;
+            z-index: 5 !important;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/1955/9489/products/social03.png?v=1608616564" alt="Image 1"></div>
+        <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/1955/9489/products/social03.png?v=1608616564" alt="Image 2"></div>
+        <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/1955/9489/products/social03.png?v=1608616564" alt="Image 3"></div>
+        <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/1955/9489/products/social03.png?v=1608616564" alt="Image 4"></div>
+        <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/1955/9489/products/social03.png?v=1608616564" alt="Image 5"></div>
+        <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/1955/9489/products/social03.png?v=1608616564" alt="Image 6"></div>
+        <div class="swiper-slide"><img src="https://cdn.shopify.com/s/files/1/1955/9489/products/social03.png?v=1608616564" alt="Image 7"></div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        mousewheel: {
+            invert: false,
+        },
+        on: {
+            click: function (swiper, event) {
+                swiper.slideTo(swiper.clickedIndex); // 点击后移动到正面
+            },
+            slideChangeTransitionEnd: function() {
+                // 自定义V字型动画效果
+                document.querySelectorAll('.swiper-slide').forEach((slide, index) => {
+                    slide.style.transform = '';
+                    slide.classList.remove('swiper-slide-active');
+                });
+                var activeIndex = swiper.activeIndex;
+                document.querySelector(`.swiper-slide:nth-child(${activeIndex % 7 + 1})`).classList.add('swiper-slide-active');
+            }
+        }
+    });
+</script>
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.custom-liquid.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:sections.custom-liquid.settings.custom_liquid.label",
+      "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom-liquid.presets.name"
+    }
+  ]
+}
+{% endschema %}

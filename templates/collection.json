@@ -1,0 +1,70 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "page_banner_JU6WQK": {
+      "type": "page-banner",
+      "disabled": true,
+      "settings": {
+        "img": "{{ collection.metafields.custom.collection_banner.value.pc_banner.value }}",
+        "img_mb": "{{ collection.metafields.custom.collection_banner.value.mobile_banner.value }}",
+        "title": "Test Title",
+        "text": "text",
+        "content_color": "#ffffff"
+      }
+    },
+    "download_line_PhHEfT": {
+      "type": "download-line",
+      "blocks": {
+        "item_CmNCT3": {
+          "type": "item",
+          "settings": {
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_CmNCT3"
+      ],
+      "disabled": true,
+      "settings": {
+        "field": "",
+        "title": "",
+        "popup_title": "MANUALS & SOFTWARE",
+        "desc": "Here you will find user manuals, device drivers and softwares for a wide range of our products."
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "page_banner_JU6WQK",
+    "download_line_PhHEfT"
+  ]
+}
