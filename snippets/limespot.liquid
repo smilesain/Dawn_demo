@@ -1,13 +1,14 @@
-<script type="text/javascript" src="https://edge.personalizer.io/storefront/2.0.0/js/shopify/storefront.min.js?key=m5vo6-iof6of7d0dl8sdx1f-ih0ft&shop=smilesain.myshopify.com"></script>
+<script type="text/javascript" src="https://edge.personalizer.io/storefront/2.0.0/js/shopify/storefront.min.js?key=dfgp5-hl6k7vqx0wuw8w1mzn-ravt1&shop=smilesain.myshopify.com"></script>
 <script>
 window.LimeSpot = window.LimeSpot === undefined ? {} : LimeSpot;{% assign t = template | prepend: '/' | append: '.' %}
-{% if t contains '/product.' %}LimeSpot.PageInfo = { Type: "Product", ReferenceIdentifier: "{{ product.id }}"};
-{% elsif t contains '/collection.' %}LimeSpot.PageInfo = { Type: "Collection", ReferenceIdentifier: "{{ collection.id }}", Personalized: {%if collection.metafields.LimeSpot['Personalized'] == "true"%}true{%else%}false{%endif%} };
-{% elsif t contains '/index.' %}LimeSpot.PageInfo = { Type: "Home", ReferenceIdentifier: null };
-{% elsif t contains '/cart.' %}LimeSpot.PageInfo = { Type: "Cart", ReferenceIdentifier: null };
-{% elsif t contains '/search.' %}LimeSpot.PageInfo = { Type: "Search", ReferenceIdentifier: null };
-{% elsif t contains '/404.' %}LimeSpot.PageInfo = { Type: "Four04", ReferenceIdentifier: null };
-{% elsif checkout.id != blank and checkout.order_id == blank %}LimeSpot.PageInfo = { Type: "Checkout", ReferenceIdentifier: null };
+{% if t contains '/product.' %}LimeSpot.PageInfo = { Type: "Product", Template: "{{ template }}", ReferenceIdentifier: "{{ product.id }}" };
+{% elsif t contains '/collection.' %}LimeSpot.PageInfo = { Type: "Collection", Template: "{{ template }}", ReferenceIdentifier: "{{ collection.id }}", Personalized: {%if collection.metafields.LimeSpot['Personalized'] == "true"%}true{%else%}false{%endif%} };
+{% elsif t contains '/list-collections.' %}LimeSpot.PageInfo = { Type: "CollectionsList", Template: "{{ template }}", ReferenceIdentifier: null };
+{% elsif t contains '/index.' %}LimeSpot.PageInfo = { Type: "Home", Template: "{{ template }}", ReferenceIdentifier: null };
+{% elsif t contains '/cart.' %}LimeSpot.PageInfo = { Type: "Cart", Template: "{{ template }}", ReferenceIdentifier: null };
+{% elsif t contains '/search.' %}LimeSpot.PageInfo = { Type: "Search", Template: "{{ template }}", ReferenceIdentifier: null };
+{% elsif t contains '/404.' %}LimeSpot.PageInfo = { Type: "Four04", Template: "{{ template }}", ReferenceIdentifier: null };
+{% elsif checkout.id != blank and checkout.order_id == blank %}LimeSpot.PageInfo = { Type: "Checkout", Template: "{{ template }}", ReferenceIdentifier: null };
 {% endif %}{% if customer %}LimeSpot.UserInfo = { Identifier: "{{ customer.id }}", Email: "{{ customer.email }}", CellPhone: "{{ customer.phone }}", FirstName: "{{ customer.first_name }}", LastName: "{{ customer.last_name }}", Tags: {{ customer.tags | json }} };
 {% endif %}
 LimeSpot.StoreInfo = { Theme: "{{ theme.name | escape }}" };
@@ -29,4 +30,4 @@ LimeSpot.CartItems = [{{ cart_product_ids | remove_first: "," }}];
 
 
 
-{% comment %}Checksum: 65a3fb31c33a9ba41277027cdf1b6aba{% endcomment %}
+{% comment %}Checksum: f7c332b57c5c8b9476ca8dd36194557a{% endcomment %}
