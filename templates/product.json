@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -64,7 +73,7 @@
           "settings": {
             "heading": "Model Info",
             "icon": "silhouette",
-            "content": "<p>{{ product.metafields.models.model_info.value.name.value }} is {{ product.metafields.models.model_info.value.height | metafield_tag }} and wearing size {{ product.metafields.modal.wearing_size.value }} .<\/p><p>{{ product.metafields.models.model_info.value.name.value }}'s measurements:<\/p><ul><li>Bust: {{ product.metafields.models.model_info.value.bust | metafield_tag }}<\/li><li>Waist: {{ product.metafields.models.model_info.value.waist | metafield_tag }}<\/li><li>Hips: {{ product.metafields.models.model_info.value.hips | metafield_tag }}<\/li><\/ul>",
+            "content": "<p>{{ product.metafields.models.model_info.value.name.value }} is {{ product.metafields.models.model_info.value.height | metafield_tag }} and wearing size {{ product.metafields.modal.wearing_size.value }} .</p><p>{{ product.metafields.models.model_info.value.name.value }}'s measurements:</p><ul><li>Bust: {{ product.metafields.models.model_info.value.bust | metafield_tag }}</li><li>Waist: {{ product.metafields.models.model_info.value.waist | metafield_tag }}</li><li>Hips: {{ product.metafields.models.model_info.value.hips | metafield_tag }}</li></ul>",
             "page": ""
           }
         },
@@ -103,7 +112,7 @@
             "period": "am",
             "text_size": 12,
             "text_size_mobile": 6,
-            "end_message": "<p>Offer has expired<\/p>",
+            "end_message": "<p>Offer has expired</p>",
             "hide_on_complete": false
           }
         }
@@ -212,7 +221,7 @@
       "type": "apps",
       "blocks": {
         "lensadvisor_select_lenses_app_app_block_eA7BDa": {
-          "type": "shopify:\/\/apps\/lensadvisor-select-lenses-app\/blocks\/app-block\/86552bcb-0c5c-439e-b59c-d8577012ea59",
+          "type": "shopify://apps/lensadvisor-select-lenses-app/blocks/app-block/86552bcb-0c5c-439e-b59c-d8577012ea59",
           "settings": {
             "hide_add_to_cart": true,
             "use_quick_view": false
@@ -226,6 +235,45 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "1759112677edfaacba": {
+      "type": "apps",
+      "blocks": {
+        "clean_sweeps_product_ticket_block_three_VgiNV9": {
+          "type": "shopify://apps/clean-sweeps/blocks/productTicketBlockThree/3dc8054c-54af-46f2-8c35-b12f06c8adac",
+          "settings": {
+            "sweepstakeId": "2025test",
+            "showSweepstakeName": true,
+            "sweepstakeName": "Default Sweepstakes",
+            "sweepstakeFontSize": 16,
+            "sweepstakeNameColor": "#000000",
+            "sweepstakeFont": "sans_serif_n4",
+            "ticketImage": "none",
+            "ticketImageSize": 25,
+            "bgColor2": "#000000",
+            "ticketText": "Entries",
+            "numberFont": "sans_serif_n4",
+            "numberColor": "#ffffff",
+            "fontSize": 16,
+            "showMultiplier": true,
+            "multiplierFontWeight": 600,
+            "multiplierBaseColor": "#000000",
+            "multiplierFlashColor": "#E27E08",
+            "multiplierFontColor": "#ffffff",
+            "multiplierFlashSpeed": 1.4,
+            "borderColor": "#000000",
+            "showBorder": false,
+            "borderRadius": 0,
+            "blockHeight": 34
+          }
+        }
+      },
+      "block_order": [
+        "clean_sweeps_product_ticket_block_three_VgiNV9"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -233,6 +281,7 @@
     "quick_order_list_9CtHEN",
     "related-products",
     "collection_list_g7H9dk",
-    "17546383701dd4b22e"
+    "17546383701dd4b22e",
+    "1759112677edfaacba"
   ]
 }
