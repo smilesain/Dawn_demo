@@ -22,7 +22,7 @@
         "clean_sweeps_product_ticket_block_three_KjUKHV": {
           "type": "shopify://apps/clean-sweeps/blocks/productTicketBlockThree/3dc8054c-54af-46f2-8c35-b12f06c8adac",
           "settings": {
-            "sweepstakeId": "default",
+            "sweepstakeId": "2025test",
             "showSweepstakeName": true,
             "sweepstakeName": "Default Sweepstakes",
             "sweepstakeFontSize": 16,
