@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -14,7 +23,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -27,7 +36,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/uk-open-pc03.png",
+        "image": "shopify://shop_images/uk-open-pc03.png",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "bottom-center",
@@ -76,7 +85,7 @@
           "settings": {
             "caption": "Caption",
             "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -86,7 +95,7 @@
           "settings": {
             "caption": "Caption",
             "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -96,7 +105,7 @@
           "settings": {
             "caption": "Caption",
             "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -131,7 +140,7 @@
           "settings": {
             "heading": "Test more",
             "icon": "leaf",
-            "row_content": "<p>stsees<\/p>",
+            "row_content": "<p>stsees</p>",
             "page": ""
           }
         },
@@ -190,8 +199,8 @@
         "heading": "Video",
         "heading_size": "h1",
         "enable_video_looping": false,
-        "video_url": "https:\/\/www.youtube.com\/watch?v=86ctnCXdpxc",
-        "cover_image": "shopify:\/\/shop_images\/uk-open-pc11.png",
+        "video_url": "https://www.youtube.com/watch?v=86ctnCXdpxc",
+        "cover_image": "shopify://shop_images/uk-open-pc11.png",
         "description": "",
         "full_width": false,
         "color_scheme": "",
@@ -212,7 +221,7 @@
         "text_KG3RpF": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "text_style": "body"
           }
         },
@@ -231,7 +240,7 @@
         "button_HD8aWE"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/banner01_b4f34349-c944-4625-8901-9d0b0c6a6c55.png",
+        "image": "shopify://shop_images/banner01_b4f34349-c944-4625-8901-9d0b0c6a6c55.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -252,8 +261,8 @@
         "heading": "Video",
         "heading_size": "h1",
         "enable_video_looping": false,
-        "video": "shopify:\/\/files\/videos\/扭屁股1200.680-1.mp4",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video": "shopify://files/videos/扭屁股1200.680-1.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "",
         "full_width": false,
         "color_scheme": "",
@@ -275,10 +284,49 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<div class=\"klaviyo-form-TuGcJf\"><\/div>",
+        "custom_liquid": "<div class=\"klaviyo-form-TuGcJf\"></div>",
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52
+      }
+    },
+    "1759111688fb5e7b4b": {
+      "type": "apps",
+      "blocks": {
+        "clean_sweeps_product_ticket_block_three_te6QeJ": {
+          "type": "shopify://apps/clean-sweeps/blocks/productTicketBlockThree/3dc8054c-54af-46f2-8c35-b12f06c8adac",
+          "settings": {
+            "sweepstakeId": "2025test",
+            "showSweepstakeName": true,
+            "sweepstakeName": "Test Gift",
+            "sweepstakeFontSize": 16,
+            "sweepstakeNameColor": "#000000",
+            "sweepstakeFont": "sans_serif_n4",
+            "ticketImage": "none",
+            "ticketImageSize": 25,
+            "bgColor2": "#000000",
+            "ticketText": "Entries",
+            "numberFont": "sans_serif_n4",
+            "numberColor": "#ffffff",
+            "fontSize": 16,
+            "showMultiplier": true,
+            "multiplierFontWeight": 600,
+            "multiplierBaseColor": "#000000",
+            "multiplierFlashColor": "#E27E08",
+            "multiplierFontColor": "#ffffff",
+            "multiplierFlashSpeed": 1.4,
+            "borderColor": "#000000",
+            "showBorder": false,
+            "borderRadius": 0,
+            "blockHeight": 34
+          }
+        }
+      },
+      "block_order": [
+        "clean_sweeps_product_ticket_block_three_te6QeJ"
+      ],
+      "settings": {
+        "include_margins": true
       }
     }
   },
@@ -291,6 +339,7 @@
     "image_with_text_WAkQRc",
     "video_YmeQAK",
     "custom_liquid_KgtkA3",
-    "custom_liquid_UhhCMr"
+    "custom_liquid_UhhCMr",
+    "1759111688fb5e7b4b"
   ]
 }
