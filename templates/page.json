@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -6,9 +15,49 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "17591112957242dbfe": {
+      "type": "apps",
+      "blocks": {
+        "clean_sweeps_product_ticket_block_three_KjUKHV": {
+          "type": "shopify://apps/clean-sweeps/blocks/productTicketBlockThree/3dc8054c-54af-46f2-8c35-b12f06c8adac",
+          "settings": {
+            "sweepstakeId": "default",
+            "showSweepstakeName": true,
+            "sweepstakeName": "Default Sweepstakes",
+            "sweepstakeFontSize": 16,
+            "sweepstakeNameColor": "#000000",
+            "sweepstakeFont": "sans_serif_n4",
+            "ticketImage": "none",
+            "ticketImageSize": 25,
+            "bgColor2": "#000000",
+            "ticketText": "Entries",
+            "numberFont": "sans_serif_n4",
+            "numberColor": "#ffffff",
+            "fontSize": 16,
+            "showMultiplier": true,
+            "multiplierFontWeight": 600,
+            "multiplierBaseColor": "#000000",
+            "multiplierFlashColor": "#E27E08",
+            "multiplierFontColor": "#ffffff",
+            "multiplierFlashSpeed": 1.4,
+            "borderColor": "#000000",
+            "showBorder": false,
+            "borderRadius": 0,
+            "blockHeight": 34
+          }
+        }
+      },
+      "block_order": [
+        "clean_sweeps_product_ticket_block_three_KjUKHV"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "17591112957242dbfe"
   ]
 }
