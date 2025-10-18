@@ -1,34 +1,26 @@
-class EnvironmentDetector {
-    static detect() {
-        if (window.shopifyAppEnv) {
-            return window.shopifyAppEnv.platform;
+// h5与原生app通信
+    public static messageChannel(event: string, data: any) {
+        const win: any = window;
+        if (win.flutter_inappwebview) {
+            // flutter通信
+            if (win.flutter_inappwebview.callHandler) {
+                win.flutter_inappwebview.callHandler('messageChannel', JSON.stringify({ type: event, data }));
+            } else {
+                win.flutter_inappwebview._callHandler('messageChannel', null, JSON.stringify({ type: event, data }));
+            }
+        } else {
+            // RN通信
+            if (AppModule.platform === 'ios') {
+                win.webkit &&
+                    win.webkit.messageHandlers.messageChannel.postMessage(JSON.stringify({ type: event, data }));
+                if (event === 'share') {
+                    win.webkit &&
+                        win.webkit.messageHandlers.messageChannel.postMessage(
+                            JSON.stringify({ type: event, data: JSON.stringify(data) }),
+                        );
+                }
+            } else {
+                win.jsBridge && win.jsBridge.messageChannel(JSON.stringify({ type: event, data }));
+            }
         }
-        const urlEnv = this.detectFromURL();
-        if (urlEnv) return urlEnv;
-        const bridgeEnv = this.detectFromBridge();
-        if (bridgeEnv) return bridgeEnv;
-        return 'shopify_website';
     }
-
-    static detectFromURL() {
-        const params = new URLSearchParams(location.search);
-        if (params.get('embedded') === 'true' && params.get('source') === 'app') {
-            return params.get('platform') + '_app';
-        }
-        return null;
-    }
-
-    static detectFromBridge() {
-        if (window.flutter_inappwebview) return 'flutter_app';
-        if (window.webkit?.messageHandlers?.messageChannel) return 'ios_rn_app';
-        if (window.jsBridge?.messageChannel) return 'android_rn_app';
-        return null;
-    }
-}
-const currentEnv = EnvironmentDetector.detect();
-if (currentEnv.includes('app')) {
-    document.body.classList.add('app-embedded');
-    localStorage.setItem('orderSource', currentEnv);
-} else {
-    document.body.classList.add('shopify-website');
-}
