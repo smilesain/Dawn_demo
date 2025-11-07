@@ -1,0 +1,49 @@
+{% comment %} 创建 snippet: 'gift-promotion-counter.liquid' {% endcomment %}
+{% assign counter = shop.metafields.global.gift_promotion_counter | default: 0 %}
+{% assign total_spots = 1000 %}
+{% assign remaining = total_spots | minus: counter %}
+
+{% if remaining > 0 %}
+<div class="promotion-counter">
+  <div class="counter-header">
+    <span class="badge">限时活动</span>
+    <h4>前{{ total_spots }}名赠配件</h4>
+  </div>
+  
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress-fill" 
+           style="width: {{ counter | times: 100.0 | divided_by: total_spots }}%">
+      </div>
+    </div>
+    <div class="counter-text">
+      已抢 <strong>{{ counter }}</strong> 份，剩余 <strong>{{ remaining }}</strong> 份
+    </div>
+  </div>
+</div>
+
+<style>
+.progress-container {
+  margin: 15px 0;
+}
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+.counter-text {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+}
+</style>
+{% endif %}
