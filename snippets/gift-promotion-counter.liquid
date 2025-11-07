@@ -1,5 +1,5 @@
 {% comment %} 创建 snippet: 'gift-promotion-counter.liquid' {% endcomment %}
-{% assign counter = shop.metafields.global.gift_promotion_counter | default: 0 %}
+{% assign counter = shop.metafields.custom.gift_promotion_counter | default: 0 %}
 {% assign total_spots = 1000 %}
 {% assign remaining = total_spots | minus: counter %}
 
