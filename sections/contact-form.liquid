@@ -14,6 +14,106 @@
   }
 {%- endstyle -%}
 
+
+{% if customer %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const checkinButton = document.getElementById('daily-checkin-btn');
+  
+  if (checkinButton) {
+    checkinButton.addEventListener('click', async function() {
+      // 禁用按钮防止重复点击
+      checkinButton.disabled = true;
+      checkinButton.textContent = '打卡中...';
+      
+      try {
+        // 调用Growave API
+        const response = await fetch('https://api.growave.io/v1/custom_actions/trigger', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer {{ settings.growave_api_token | escape }}'
+          },
+          body: JSON.stringify({
+            action_id: '{{ settings.growave_checkin_action_id }}',
+            customer: {
+              email: {{ customer.email | json }},
+              id: {{ customer.id | json }},
+              first_name: {{ customer.first_name | json }},
+              last_name: {{ customer.last_name | json }}
+            },
+            metadata: {
+              checkin_date: new Date().toISOString(),
+              user_agent: navigator.userAgent,
+              page_url: window.location.href
+            }
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          // 根据连续天数显示不同奖励
+          const streak = result.data.streak_days || 1;
+          showRewardMessage(streak);
+          
+          // 更新UI
+          updateCheckinUI(true, streak);
+        } else {
+          throw new Error(result.message || '打卡失败');
+        }
+        
+      } catch (error) {
+        console.error('Checkin failed:', error);
+        alert('打卡失败: ' + error.message);
+        checkinButton.disabled = false;
+        checkinButton.textContent = '立即打卡';
+      }
+    });
+  }
+  
+  function showRewardMessage(streak) {
+    const rewards = {
+      2: { title: '奖励A', discount: '10%OFF', type: 'coupon_a' },
+      3: { title: '奖励A', discount: '10%OFF', type: 'coupon_a' },
+      4: { title: '奖励B', discount: '15%OFF+免邮', type: 'coupon_b' },
+      5: { title: '奖励B', discount: '15%OFF+免邮', type: 'coupon_b' },
+      6: { title: '奖励C', discount: '20%OFF+$5礼品卡', type: 'coupon_c' }
+    };
+    
+    const reward = rewards[streak];
+    if (reward) {
+      // 显示奖励弹窗
+      const modal = document.createElement('div');
+      modal.className = 'reward-modal';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <h3>🎉 恭喜！连续打卡 ${streak} 天</h3>
+          <p>获得${reward.title}: ${reward.discount}</p>
+          <p>折扣码已发送到您的账户</p>
+          <button onclick="this.closest('.reward-modal').remove()">确定</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    } else {
+      alert(`打卡成功！当前连续${streak}天`);
+    }
+  }
+  
+  function updateCheckinUI(isCheckedIn, streak) {
+    const streakElement = document.getElementById('streak-count');
+    const button = document.getElementById('daily-checkin-btn');
+    
+    if (streakElement) streakElement.textContent = streak;
+    if (button) {
+      button.disabled = isCheckedIn;
+      button.textContent = isCheckedIn ? '今日已打卡 ✓' : '立即打卡';
+    }
+  }
+});
+</script>
+{% endif %}
+
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
     {%- if section.settings.heading != blank -%}
