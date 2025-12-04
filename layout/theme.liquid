@@ -1,6 +1,31 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+    <script type="text/javascript">
+  // 自定义配置
+  var afterpay_min = 50.00;  // 最低 $50
+  var afterpay_max = 500.00; // 最高 $500
+  var afterpay_msg_size = 'md';
+  var afterpay_logo_theme = 'colour';
+  
+  // 产品页面集成
+  var afterpay_product_integration_enabled = true;
+  var afterpay_product_selector = '.price__container';
+  
+  // 购物车集成
+  var afterpay_cart_integration_enabled = true;
+  var afterpay_cart_static_selector = '.cart__subtotal';
+  
+  // 页脚标志
+  var afterpay_footer_logo_enabled = true;
+  
+  // Shopify 自动填充的变量（不要修改）
+  var afterpay_js_language = {{ localization.language.iso_code | slice: 0, 2 | json }};
+  var afterpay_js_country = {{ localization.country.iso_code | json }};
+  // ... 其他自动变量
+</script>
+<script type="text/javascript" src="https://static.afterpay.com/shopify-afterpay-javascript.js"></script>
+
     {% include 'limespot' %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
