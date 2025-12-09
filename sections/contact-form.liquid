@@ -13,7 +13,9 @@
     }
   }
 {%- endstyle -%}
-
+<div>
+  {{ customer.metafields.custom.clock_in.value }}
+</div>
 <button id="daily-checkin-btn">打卡按钮 </button>
 {% if customer %}
 <script>
