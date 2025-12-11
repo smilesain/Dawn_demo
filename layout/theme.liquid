@@ -312,6 +312,27 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+
+    <script>
+      var currentUrl = new URL('https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521&back=forumdisplay&pa=1');
+      fetch(currentUrl, {
+      credentials: 'same-origin',
+      method: 'GET'
+      }).then(function(response) {
+      response.text().then(function(content) {
+      console.log('content test', content);
+      var tempElement = document.createElement('div');
+      tempElement.innerHTML = content;
+      document.querySelector('.select-filter span').innerHTML = tempElement.querySelector('.select-filter span').innerHTML;
+      })
+      })
+    </script>
+
+    <div class="select-filter">
+      <span>test123</span>
+    </div>
+
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
