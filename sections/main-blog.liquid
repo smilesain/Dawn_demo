@@ -16,24 +16,6 @@
   }
 {%- endstyle -%}
 
-<script>
-  var currentUrl = new URL('https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521&back=forumdisplay&pa=1');
-  fetch(currentUrl, {
-  credentials: 'same-origin',
-  method: 'GET'
-  }).then(function(response) {
-  response.text().then(function(content) {
-  console.log('content test', content);
-  var tempElement = document.createElement('div');
-  tempElement.innerHTML = content;
-  document.querySelector('.select-filter span').innerHTML = tempElement.querySelector('.select-filter span').innerHTML;
-  })
-  })
-</script>
-
-<div class="select-filter">
-  <span>test123</span>
-</div>
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
