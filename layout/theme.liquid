@@ -313,6 +313,44 @@
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
 
+<div id="dreame-forum-data">
+  <p>正在加载论坛信息...</p>
+</div>
+
+<script>
+// 重要提示：由于CORS（跨域）限制，此方法几乎肯定会失败，此处仅作原理演示。
+fetch('https://cors-anywhere.herokuapp.com/https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521')
+  .then(response => response.text())
+  .then(html => {
+    // 创建一个虚拟DOM元素来解析返回的HTML
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    // 使用更精确的选择器尝试定位数据
+    // 1. 尝试获取标题（假设它在<h1>或具有特定类的标题标签内）
+    const titleElement = doc.querySelector('h1, .thread-title, .post-title');
+    const title = titleElement ? titleElement.innerText : '未找到标题';
+    
+    // 2. 尝试获取浏览量（根据页面结构查找，例如包含“20062”的特定元素）
+    // 这里假设浏览量在某个具有特定类（如“.views”）的元素里
+    const viewCountElement = doc.querySelector('.views, .viewcount');
+    let viewCount = viewCountElement ? viewCountElement.innerText.trim() : '未找到浏览量';
+    // 简单清理数据，只保留数字
+    viewCount = viewCount.match(/\d+/g);
+    
+    // 将获取到的数据插入到页面中
+    document.getElementById('dreame-forum-data').innerHTML = `
+      <h3>论坛热点: ${title}</h3>
+      <p>话题浏览量: ${viewCount ? viewCount[0] : 'N/A'}</p>
+      <p><a href="https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521" target="_blank">查看原讨论</a></p>
+    `;
+  })
+  .catch(error => {
+    console.error('获取数据失败:', error);
+    document.getElementById('dreame-forum-data').innerHTML = '<p>无法加载外部内容。</p>';
+  });
+</script>
+    
     {% comment %} <script>
       var currentUrl = new URL('https://smilesain.myshopify.com/blogs/news');
       fetch(currentUrl, {
@@ -333,7 +371,7 @@
     </div>
      {% endcomment %}
 
-     <div style="position: relative; width: 100%; padding-bottom: 75%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+     {% comment %} <div style="position: relative; width: 100%; padding-bottom: 75%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
     <iframe 
         src="https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521&back=forumdisplay&pa=1" 
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
@@ -349,7 +387,7 @@
             这里访问原页面
         </a>
     </iframe>
-</div>
+</div> {% endcomment %}
 
 
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
