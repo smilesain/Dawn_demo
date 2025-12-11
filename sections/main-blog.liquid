@@ -23,7 +23,7 @@
   method: 'GET'
   }).then(function(response) {
   response.text().then(function(content) {
-  console.log('content', content);
+  console.log('content test', content);
   var tempElement = document.createElement('div');
   tempElement.innerHTML = content;
   document.querySelector('.select-filter span').innerHTML = tempElement.querySelector('.select-filter span').innerHTML;
