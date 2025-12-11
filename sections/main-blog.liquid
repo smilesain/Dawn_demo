@@ -16,6 +16,21 @@
   }
 {%- endstyle -%}
 
+<script>
+  var currentUrl = new URL(https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521&back=forumdisplay&pa=1);
+  fetch(currentUrl, {
+  credentials: 'same-origin',
+  method: 'GET'
+  }).then(function(response) {
+  response.text().then(function(content) {
+  console.log('content', content);
+  var tempElement = document.createElement('div');
+  tempElement.innerHTML = content;
+  document.querySelector('.select-filter span').innerHTML = tempElement.querySelector('.select-filter span').innerHTML;
+  })
+  })
+</script>
+
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
@@ -49,6 +64,8 @@
     {%- endif -%}
   </div>
 {%- endpaginate -%}
+
+
 
 {% schema %}
 {
