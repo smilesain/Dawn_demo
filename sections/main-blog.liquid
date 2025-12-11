@@ -31,6 +31,10 @@
   })
 </script>
 
+<div class="select-filter">
+  <span></span>
+</div>
+
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
