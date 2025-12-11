@@ -313,7 +313,7 @@
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
 
-    <script>
+    {% comment %} <script>
       var currentUrl = new URL('https://smilesain.myshopify.com/blogs/news');
       fetch(currentUrl, {
       credentials: 'same-origin',
@@ -331,6 +331,25 @@
     <div class="select-filter">
       <span>test123</span>
     </div>
+     {% endcomment %}
+
+     <div style="position: relative; width: 100%; padding-bottom: 75%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+    <iframe 
+        src="https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521&back=forumdisplay&pa=1" 
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        frameborder="0"
+        scrolling="auto"
+        allowfullscreen
+        title="Dreametech 论坛讨论"
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+        referrerpolicy="no-referrer-when-downgrade">
+        
+        您的浏览器不支持嵌入式内容，请点击
+        <a href="https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521&back=forumdisplay&pa=1" target="_blank" rel="noopener">
+            这里访问原页面
+        </a>
+    </iframe>
+</div>
 
 
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
