@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 3. 提取主帖内容
             let mainContent = '';
-            const contentSelectors = ['.post-content', '.t_f', '.message', 'article'];
+            const contentSelectors = ['#post_5044', '.t_f', '.message', 'article'];
             for (const selector of contentSelectors) {
                 const element = iframeDoc.querySelector(selector);
                 if (element) {
