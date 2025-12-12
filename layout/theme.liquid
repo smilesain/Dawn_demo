@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 4. 提取发帖时间
             let postTime = '';
-            const timeSelectors = ['.post-time', '.date', 'time', '.authi em'];
+            const timeSelectors = ['.user_postdate', '.date', 'time', '.authi em'];
             for (const selector of timeSelectors) {
                 const element = iframeDoc.querySelector(selector);
                 if (element) {
