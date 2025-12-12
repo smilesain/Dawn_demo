@@ -313,42 +313,155 @@
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
 
-<div id="dreame-forum-data">
-  <p>正在加载论坛信息...</p>
+    
+
+    <!-- 容器1: iframe 嵌入 -->
+<div style="position: relative; width: 100%; padding-bottom: 75%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-bottom: 20px;">
+    <iframe 
+        id="dreame-iframe"
+        src="https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521&back=forumdisplay&pa=1" 
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        frameborder="0"
+        scrolling="auto"
+        allowfullscreen
+        title="Dreametech 论坛讨论"
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<!-- 容器2: 用于显示提取的信息 -->
+<div id="extracted-content" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px;">
+    <h3>📋 从论坛提取的信息</h3>
+    <p>正在加载...</p>
+    <div id="content-details"></div>
 </div>
 
 <script>
-// 重要提示：由于CORS（跨域）限制，此方法几乎肯定会失败，此处仅作原理演示。
-fetch('https://cors-anywhere.herokuapp.com/https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521')
-  .then(response => response.text())
-  .then(html => {
-    // 创建一个虚拟DOM元素来解析返回的HTML
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
+document.addEventListener('DOMContentLoaded', function() {
+    const iframe = document.getElementById('dreame-iframe');
+    const extractedDiv = document.getElementById('extracted-content');
+    const detailsDiv = document.getElementById('content-details');
     
-    // 使用更精确的选择器尝试定位数据
-    // 1. 尝试获取标题（假设它在<h1>或具有特定类的标题标签内）
-    const titleElement = doc.querySelector('h1, .thread-title, .post-title');
-    const title = titleElement ? titleElement.innerText : '未找到标题';
+    // 提取信息的函数
+    function extractForumInfo() {
+        try {
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            // 根据页面结构提取特定信息
+            // 1. 提取标题 (尝试多个选择器)
+            let title = '';
+            const selectors = ['h1', '.thread-title', '.post-title', 'title'];
+            for (const selector of selectors) {
+                const element = iframeDoc.querySelector(selector);
+                if (element && element.innerText.trim()) {
+                    title = element.innerText.trim();
+                    break;
+                }
+            }
+            
+            // 2. 提取浏览数 (20062) - 需要根据实际页面结构调整
+            let viewCount = 'N/A';
+            // 方法1: 查找包含数字"20062"的元素
+            const allElements = iframeDoc.querySelectorAll('*');
+            for (const el of allElements) {
+                if (el.innerText && el.innerText.includes('20062')) {
+                    viewCount = '20062'; // 直接从文本中获取
+                    break;
+                }
+            }
+            
+            // 3. 提取主帖内容
+            let mainContent = '';
+            const contentSelectors = ['.post-content', '.t_f', '.message', 'article'];
+            for (const selector of contentSelectors) {
+                const element = iframeDoc.querySelector(selector);
+                if (element) {
+                    mainContent = element.innerText.substring(0, 200) + '...'; // 截取前200字符
+                    break;
+                }
+            }
+            
+            // 4. 提取发帖时间
+            let postTime = '';
+            const timeSelectors = ['.post-time', '.date', 'time', '.authi em'];
+            for (const selector of timeSelectors) {
+                const element = iframeDoc.querySelector(selector);
+                if (element) {
+                    postTime = element.innerText.trim();
+                    break;
+                }
+            }
+            
+            // 更新显示区域
+            if (title || viewCount !== 'N/A' || mainContent) {
+                detailsDiv.innerHTML = `
+                    ${title ? `<p><strong>标题:</strong> ${title}</p>` : ''}
+                    ${viewCount !== 'N/A' ? `<p><strong>浏览数:</strong> ${viewCount}</p>` : ''}
+                    ${postTime ? `<p><strong>发布时间:</strong> ${postTime}</p>` : ''}
+                    ${mainContent ? `<p><strong>内容摘要:</strong> ${mainContent}</p>` : ''}
+                    <hr>
+                    <p class="note">ℹ️ 信息从嵌入页面实时提取</p>
+                `;
+                extractedDiv.querySelector('p').style.display = 'none';
+            } else {
+                detailsDiv.innerHTML = '<p style="color:#666">未能提取到信息，可能页面结构已变化。</p>';
+            }
+            
+        } catch (error) {
+            console.warn('提取内容时出错:', error);
+            detailsDiv.innerHTML = `
+                <p style="color:#dc3545">⚠️ 由于安全限制，无法直接读取iframe内容</p>
+                <p>您可以：</p>
+                <ol>
+                    <li>直接访问<a href="https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521" target="_blank">原页面</a>查看</li>
+                    <li>或考虑使用后端代理方案</li>
+                </ol>
+            `;
+        }
+    }
     
-    // 2. 尝试获取浏览量（根据页面结构查找，例如包含“20062”的特定元素）
-    // 这里假设浏览量在某个具有特定类（如“.views”）的元素里
-    const viewCountElement = doc.querySelector('.views, .viewcount');
-    let viewCount = viewCountElement ? viewCountElement.innerText.trim() : '未找到浏览量';
-    // 简单清理数据，只保留数字
-    viewCount = viewCount.match(/\d+/g);
+    // 方法1: iframe加载完成后尝试提取
+    iframe.addEventListener('load', function() {
+        // 等待页面完全加载
+        setTimeout(extractForumInfo, 2000);
+    });
     
-    // 将获取到的数据插入到页面中
-    document.getElementById('dreame-forum-data').innerHTML = `
-      <h3>论坛热点: ${title}</h3>
-      <p>话题浏览量: ${viewCount ? viewCount[0] : 'N/A'}</p>
-      <p><a href="https://pl.forum.dreametech.com/forum.php?mod=viewthread&tid=1521" target="_blank">查看原讨论</a></p>
-    `;
-  })
-  .catch(error => {
-    console.error('获取数据失败:', error);
-    document.getElementById('dreame-forum-data').innerHTML = '<p>无法加载外部内容。</p>';
-  });
+    // 方法2: 使用MutationObserver监听内容变化
+    const observer = new MutationObserver(function(mutations) {
+        extractForumInfo();
+    });
+    
+    // 尝试监听iframe内容变化
+    try {
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        if (iframeDoc.body) {
+            observer.observe(iframeDoc.body, {
+                childList: true,
+                subtree: true,
+                characterData: true
+            });
+        }
+    } catch (e) {
+        // 跨域访问被阻止
+        console.log('无法建立内容监听:', e.message);
+    }
+    
+    // 备用方案: 如果直接访问失败，显示提示
+    setTimeout(function() {
+        if (detailsDiv.innerHTML.includes('正在加载')) {
+            detailsDiv.innerHTML = `
+                <p>尝试读取嵌入页面内容失败，这通常是由于跨域安全限制。</p>
+                <p><strong>替代方案建议：</strong></p>
+                <ul>
+                    <li><strong>后端代理</strong>: 创建API端点获取目标页面，解析后返回数据</li>
+                    <li><strong>手动同步</strong>: 定期手动更新重要信息</li>
+                    <li><strong>官方API</strong>: 查看该论坛是否提供数据接口</li>
+                </ul>
+            `;
+        }
+    }, 5000);
+});
 </script>
     
     {% comment %} <script>
