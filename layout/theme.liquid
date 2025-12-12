@@ -315,7 +315,7 @@
 
     
 
-    <!-- 容器1: iframe 嵌入 -->
+    {% comment %} <!-- 容器1: iframe 嵌入 -->
 <div style="position: relative; width: 100%; padding-bottom: 75%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-bottom: 20px;">
     <iframe 
         id="dreame-iframe"
@@ -462,7 +462,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 5000);
 });
-</script>
+</script> {% endcomment %}
+
+
+
+
     
     {% comment %} <script>
       var currentUrl = new URL('https://smilesain.myshopify.com/blogs/news');
