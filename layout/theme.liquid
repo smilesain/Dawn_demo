@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // 根据页面结构提取特定信息
             // 1. 提取标题 (尝试多个选择器)
             let title = '';
-            const selectors = ['h1', '.thread-title', '.post-title', 'title'];
+            const selectors = ['.hl_posthead', '.thread-title', '.post-title', 'title'];
             for (const selector of selectors) {
                 const element = iframeDoc.querySelector(selector);
                 if (element && element.innerText.trim()) {
