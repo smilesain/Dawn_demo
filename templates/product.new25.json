@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -64,7 +73,7 @@
           "settings": {
             "heading": "Model Info",
             "icon": "silhouette",
-            "content": "<p>{{ product.metafields.models.model_info.value.name.value }} is {{ product.metafields.models.model_info.value.height | metafield_tag }} and wearing size {{ product.metafields.modal.wearing_size.value }} .<\/p><p>{{ product.metafields.models.model_info.value.name.value }}'s measurements:<\/p><ul><li>Bust: {{ product.metafields.models.model_info.value.bust | metafield_tag }}<\/li><li>Waist: {{ product.metafields.models.model_info.value.waist | metafield_tag }}<\/li><li>Hips: {{ product.metafields.models.model_info.value.hips | metafield_tag }}<\/li><\/ul>",
+            "content": "<p>{{ product.metafields.models.model_info.value.name.value }} is {{ product.metafields.models.model_info.value.height | metafield_tag }} and wearing size {{ product.metafields.modal.wearing_size.value }} .</p><p>{{ product.metafields.models.model_info.value.name.value }}'s measurements:</p><ul><li>Bust: {{ product.metafields.models.model_info.value.bust | metafield_tag }}</li><li>Waist: {{ product.metafields.models.model_info.value.waist | metafield_tag }}</li><li>Hips: {{ product.metafields.models.model_info.value.hips | metafield_tag }}</li></ul>",
             "page": ""
           }
         },
@@ -103,7 +112,7 @@
             "period": "am",
             "text_size": 12,
             "text_size_mobile": 6,
-            "end_message": "<p>Offer has expired<\/p>",
+            "end_message": "<p>Offer has expired</p>",
             "hide_on_complete": false
           }
         }
@@ -278,7 +287,7 @@
         "text_NPnVYp": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
         },
         "button_xe4rDk": {
@@ -320,7 +329,7 @@
         "text_kVyiMi": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "text_style": "body"
           }
         },
@@ -444,7 +453,7 @@
           "type": "column",
           "settings": {
             "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "link_label": "",
             "link": ""
           }
@@ -453,7 +462,7 @@
           "type": "column",
           "settings": {
             "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "link_label": "",
             "link": ""
           }
@@ -462,7 +471,7 @@
           "type": "column",
           "settings": {
             "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "link_label": "",
             "link": ""
           }
@@ -498,7 +507,7 @@
           "settings": {
             "caption": "Caption",
             "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -508,7 +517,7 @@
           "settings": {
             "caption": "Caption",
             "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -518,7 +527,7 @@
           "settings": {
             "caption": "Caption",
             "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -633,29 +642,6 @@
         "padding_bottom": 36
       }
     },
-    "custom_liquid_YV4QUn": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "video_UUTRJh": {
-      "type": "video",
-      "settings": {
-        "heading": "Video",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "slideshow_dVjwwh": {
       "type": "slideshow",
       "blocks": {
@@ -709,6 +695,29 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "custom_liquid_YV4QUn": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "video_UUTRJh": {
+      "type": "video",
+      "settings": {
+        "heading": "Video",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "image_with_text_BRYMEB": {
       "type": "image-with-text",
       "blocks": {
@@ -722,7 +731,7 @@
         "text_zVjMqD": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "text_style": "body"
           }
         },
@@ -763,7 +772,7 @@
           "settings": {
             "caption": "Caption",
             "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -773,7 +782,7 @@
           "settings": {
             "caption": "Caption",
             "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -783,7 +792,7 @@
           "settings": {
             "caption": "Caption",
             "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -823,7 +832,7 @@
         "text_fGbeD9": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
         },
         "button_n4yaYe": {
@@ -865,7 +874,7 @@
         "text_4RNEEL": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "text_style": "body"
           }
         },
@@ -1098,10 +1107,10 @@
     "collapsible_content_6B49Fi",
     "contact_form_7ALJQJ",
     "featured_blog_qe3iJp",
-    "custom_liquid_YV4QUn",
-    "video_UUTRJh",
     "slideshow_dVjwwh",
+    "custom_liquid_YV4QUn",
     "image_with_text_BRYMEB",
+    "video_UUTRJh",
     "multirow_GhWFkm",
     "rich_text_acKbhL",
     "image_with_text_7zq9bC",
