@@ -73,7 +73,7 @@
           "settings": {
             "heading": "Model Info",
             "icon": "silhouette",
-            "content": "<p>{{ product.metafields.models.model_info.value.name.value }} is {{ product.metafields.models.model_info.value.height | metafield_tag }} and wearing size {{ product.metafields.modal.wearing_size.value }} .</p><p>{{ product.metafields.models.model_info.value.name.value }}'s measurements:</p><ul><li>Bust: {{ product.metafields.models.model_info.value.bust | metafield_tag }}</li><li>Waist: {{ product.metafields.models.model_info.value.waist | metafield_tag }}</li><li>Hips: {{ product.metafields.models.model_info.value.hips | metafield_tag }}</li></ul>",
+            "content": "<p>{{ product.metafields.models.model_info.value.name.value }} is {{ product.metafields.models.model_info.value.height | metafield_tag }} and wearing size {{ product.metafields.modal.wearing_size.value }} .</p><p>{{ product.metafields.models.model_info.value.name.value }}'s measurements:</p><ul><li>Bust: {{ product.metafields.models.model_info.value.bust | metafield_tag }}</li><li>Waist: {{ product.metafields.models.model_info.value.waist | metafield_tag }}</li><li>Hips: {{ product.metafields.models.model_info.value.hips | metafield_tag }}{{ block.settings.page.title }}</li></ul>",
             "page": ""
           }
         },
@@ -183,7 +183,7 @@
         "featured_collection_peg36E": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "building-toys"
           }
         },
         "featured_collection_cktiFd": {
