@@ -223,7 +223,7 @@
         "lensadvisor_select_lenses_app_app_block_eA7BDa": {
           "type": "shopify://apps/lensadvisor-select-lenses-app/blocks/app-block/86552bcb-0c5c-439e-b59c-d8577012ea59",
           "settings": {
-            "hide_add_to_cart": true,
+            "hide_add_to_cart": false,
             "use_quick_view": false,
             "use_metafield_data": false,
             "enable_slide_animation": false
