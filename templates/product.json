@@ -224,7 +224,9 @@
           "type": "shopify://apps/lensadvisor-select-lenses-app/blocks/app-block/86552bcb-0c5c-439e-b59c-d8577012ea59",
           "settings": {
             "hide_add_to_cart": true,
-            "use_quick_view": false
+            "use_quick_view": false,
+            "use_metafield_data": false,
+            "enable_slide_animation": false
           }
         }
       },
@@ -258,7 +260,7 @@
             "showMultiplier": true,
             "multiplierFontWeight": 600,
             "multiplierBaseColor": "#000000",
-            "multiplierFlashColor": "#E27E08",
+            "multiplierFlashColor": "#e27e08",
             "multiplierFontColor": "#ffffff",
             "multiplierFlashSpeed": 1.4,
             "borderColor": "#000000",
@@ -271,6 +273,7 @@
       "block_order": [
         "clean_sweeps_product_ticket_block_three_VgiNV9"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
       }
