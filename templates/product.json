@@ -273,42 +273,7 @@
       "block_order": [
         "clean_sweeps_product_ticket_block_three_VgiNV9"
       ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "176969002157013ee9": {
-      "type": "apps",
-      "blocks": {
-        "metafields_guru_product_variant_text_w6BgLV": {
-          "type": "shopify://apps/metafields-guru/blocks/product-variant-text/79c9df68-85d5-4857-a386-0d96fc22b663",
-          "settings": {
-            "title": "",
-            "mn": "metafields_guru",
-            "mk": "text",
-            "use_default": true,
-            "color": "",
-            "bg": "",
-            "text_style": "default",
-            "design": "ul",
-            "gap": 4,
-            "plv": 0,
-            "plh": 0,
-            "corner_radius": 0,
-            "border_size": 0,
-            "border_style": "solid",
-            "pf": "",
-            "sf": "",
-            "display_units": true,
-            "pt": 0,
-            "pb": 0,
-            "cc": ""
-          }
-        }
-      },
-      "block_order": [
-        "metafields_guru_product_variant_text_w6BgLV"
-      ],
+      "disabled": true,
       "settings": {
         "include_margins": true
       }
@@ -320,7 +285,6 @@
     "related-products",
     "collection_list_g7H9dk",
     "17546383701dd4b22e",
-    "1759112677edfaacba",
-    "176969002157013ee9"
+    "1759112677edfaacba"
   ]
 }
