@@ -52,12 +52,12 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "{{ section.settings.collection.title }}",
         "heading_size": "h2",
-        "description": "",
+        "description": "{{ section.settings.collection.description }}{{ section.settings.collection.metafields.custom.benefit | metafield_tag: field: 'title' }}",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
+        "collection": "building-toys",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
