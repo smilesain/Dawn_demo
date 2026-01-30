@@ -54,7 +54,7 @@
       "settings": {
         "title": "Featured products",
         "heading_size": "h2",
-        "description": "{{ section.settings.collection.description }}{{ section.settings.collection.metafields.custom.collection_banner.value.content | metafield_tag }}",
+        "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "all",
