@@ -191,6 +191,11 @@
         "type": "shopify://apps/clean-sweeps/blocks/referralHeaderGhost/3dc8054c-54af-46f2-8c35-b12f06c8adac",
         "disabled": false,
         "settings": {}
+      },
+      "1232542678405107163": {
+        "type": "shopify://apps/instafeed/blocks/head-block/c447db20-095d-4a10-9725-b5977662c9d5",
+        "disabled": true,
+        "settings": {}
       }
     },
     "color_schemes": {
