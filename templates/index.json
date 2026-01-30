@@ -116,6 +116,7 @@
         "row_nP6HRb",
         "row_YRCJwP"
       ],
+      "disabled": true,
       "settings": {
         "image_height": "medium",
         "desktop_image_width": "medium",
@@ -325,6 +326,7 @@
       "block_order": [
         "clean_sweeps_product_ticket_block_three_te6QeJ"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
       }
