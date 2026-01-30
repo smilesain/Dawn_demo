@@ -52,7 +52,7 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products{{ section.settings.collection.title }}",
+        "title": "Featured products",
         "heading_size": "h2",
         "description": "{{ section.settings.collection.description }}{{ section.settings.collection.metafields.custom.collection_banner.value.content | metafield_tag }}",
         "show_description": false,
