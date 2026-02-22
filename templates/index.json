@@ -52,12 +52,12 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "{{ section.settings.collection.title }}",
         "heading_size": "h2",
-        "description": "",
+        "description": "{{ section.settings.collection.description }}{{ section.settings.collection.metafields.custom.benefit | metafield_tag: field: 'title' }}",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
+        "collection": "building-toys",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
@@ -116,6 +116,7 @@
         "row_nP6HRb",
         "row_YRCJwP"
       ],
+      "disabled": true,
       "settings": {
         "image_height": "medium",
         "desktop_image_width": "medium",
@@ -138,7 +139,7 @@
         "collapsible_row_gmfM7n": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Test more",
+            "heading": "Test more{{ block.settings.page.title }}{{ block.settings.page.metafields.custom.new_download | metafield_text: field: 'model' }}",
             "icon": "leaf",
             "row_content": "<p>stsees</p>",
             "page": ""
@@ -312,7 +313,7 @@
             "showMultiplier": true,
             "multiplierFontWeight": 600,
             "multiplierBaseColor": "#000000",
-            "multiplierFlashColor": "#E27E08",
+            "multiplierFlashColor": "#e27e08",
             "multiplierFontColor": "#ffffff",
             "multiplierFlashSpeed": 1.4,
             "borderColor": "#000000",
@@ -325,8 +326,50 @@
       "block_order": [
         "clean_sweeps_product_ticket_block_three_te6QeJ"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
+      }
+    },
+    "collection_list_n4Wz7Q": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_3AQR7C": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "featured_collection_bBPNAV": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_XfaR3U": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_3AQR7C",
+        "featured_collection_bBPNAV",
+        "featured_collection_XfaR3U"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
@@ -340,6 +383,7 @@
     "video_YmeQAK",
     "custom_liquid_KgtkA3",
     "custom_liquid_UhhCMr",
-    "1759111688fb5e7b4b"
+    "1759111688fb5e7b4b",
+    "collection_list_n4Wz7Q"
   ]
 }
