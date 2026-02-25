@@ -151,6 +151,7 @@
     },
     "quick_order_list_9CtHEN": {
       "type": "quick-order-list",
+      "disabled": true,
       "settings": {
         "show_image": false,
         "show_sku": false,
