@@ -116,7 +116,6 @@
         "row_nP6HRb",
         "row_YRCJwP"
       ],
-      "disabled": true,
       "settings": {
         "image_height": "medium",
         "desktop_image_width": "medium",
@@ -179,6 +178,7 @@
         "collapsible_row_YzAzJP",
         "collapsible_row_zp83Ci"
       ],
+      "disabled": true,
       "settings": {
         "caption": "",
         "heading": "Collapsible content",
@@ -240,6 +240,7 @@
         "text_KG3RpF",
         "button_HD8aWE"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/banner01_b4f34349-c944-4625-8901-9d0b0c6a6c55.png",
         "height": "adapt",
@@ -298,6 +299,7 @@
           "type": "shopify://apps/clean-sweeps/blocks/productTicketBlockThree/3dc8054c-54af-46f2-8c35-b12f06c8adac",
           "settings": {
             "sweepstakeId": "2025test",
+            "displayProductNotEligible": true,
             "showSweepstakeName": true,
             "sweepstakeName": "Test Gift",
             "sweepstakeFontSize": 16,

@@ -133,6 +133,7 @@
         "popup_CV3Wa3",
         "countdown_CCminW"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -151,6 +152,7 @@
     },
     "quick_order_list_9CtHEN": {
       "type": "quick-order-list",
+      "disabled": true,
       "settings": {
         "show_image": false,
         "show_sku": false,
@@ -435,6 +437,7 @@
         "product_4HW469",
         "collection_XhQH4n"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Multimedia collage",
         "heading_size": "h1",
@@ -1629,6 +1632,7 @@
         "featured_collection_4RhBta",
         "featured_collection_8d6LQf"
       ],
+      "disabled": true,
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Collections",
