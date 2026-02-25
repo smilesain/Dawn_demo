@@ -258,6 +258,7 @@
     },
     "video_YmeQAK": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "heading": "Video",
         "heading_size": "h1",
@@ -283,6 +284,7 @@
     },
     "custom_liquid_UhhCMr": {
       "type": "custom-liquid",
+      "disabled": true,
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "custom_liquid": "<div class=\"klaviyo-form-TuGcJf\"></div>",
@@ -298,6 +300,7 @@
           "type": "shopify://apps/clean-sweeps/blocks/productTicketBlockThree/3dc8054c-54af-46f2-8c35-b12f06c8adac",
           "settings": {
             "sweepstakeId": "2025test",
+            "displayProductNotEligible": true,
             "showSweepstakeName": true,
             "sweepstakeName": "Test Gift",
             "sweepstakeFontSize": 16,
