@@ -1629,6 +1629,7 @@
         "featured_collection_4RhBta",
         "featured_collection_8d6LQf"
       ],
+      "disabled": true,
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Collections",
