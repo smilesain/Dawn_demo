@@ -133,6 +133,7 @@
         "popup_CV3Wa3",
         "countdown_CCminW"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
