@@ -52,7 +52,7 @@ function handleResponse() {
   // 如果只想打印特定 section 的内容
   {% comment %} console.log(data['featured-blog']); {% endcomment %}
   var container = document.getElementById('shopify-module-container');
-    if (container && data['image-banner']) {
+    if (container) {
       container.innerHTML = data['image-banner'];
     }
   }
