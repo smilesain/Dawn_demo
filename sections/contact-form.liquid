@@ -19,7 +19,28 @@
   <button data-render class="button">Render</button>
 </div>
 <script>
-  function handleResponse() {
+
+fetch('/?sections=image-banner')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    // 打印到控制台
+    console.log('获取到的数据:', data);
+    
+    // 显示在页面上
+    var container = document.getElementById('shopify-module-container');
+    if (container && data['image-banner']) {
+      container.innerHTML = data['image-banner'];
+    }
+  })
+  .catch(function(error) {
+    console.error('请求失败:', error);
+  });
+
+
+
+  {% comment %} function handleResponse() {
   // 将解析后的数据保存到变量
   var data = JSON.parse(this.responseText);
   // 打印整个数据对象
@@ -32,7 +53,11 @@
 
   request.addEventListener('load', handleResponse);
   request.open('GET', '/?sections=featured-blog', true);
-  request.send();
+  request.send(); {% endcomment %}
+
+
+
+
 
 {% comment %} const button = document.querySelector('[data-render]');
 button.addEventListener('click', ()=>{
