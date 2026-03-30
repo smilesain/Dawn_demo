@@ -44,7 +44,7 @@ fetch('/?sections=image-banner')
 
 
 
-function handleResponse() {
+{% comment %} function handleResponse() {
   // 将解析后的数据保存到变量
   var data = JSON.parse(this.responseText);
   // 打印整个数据对象
@@ -61,7 +61,7 @@ function handleResponse() {
 
   request.addEventListener('load', handleResponse);
   request.open('GET', '/?sections=image-banner', true);
-  request.send();
+  request.send(); {% endcomment %}
 
 
 
