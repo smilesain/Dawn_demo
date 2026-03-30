@@ -19,7 +19,17 @@
   <button data-render class="button">Render</button>
 </div>
 <script>
-const button = document.querySelector('[data-render]');
+  function handleResponse() {
+    JSON.parse(this.responseText);
+  }
+
+  const request = new XMLHttpRequest();
+
+  request.addEventListener('load', handleResponse);
+  request.open('GET', '/?sections=main-password-header,sections--1234__header', true);
+  request.send();
+
+{% comment %} const button = document.querySelector('[data-render]');
 button.addEventListener('click', ()=>{
   fetch(`${window.Shopify.routes.root}?sections=featured-blog`)
   .then((response)=>{
@@ -28,7 +38,7 @@ button.addEventListener('click', ()=>{
   .then((data)=>{
     console.log(data)
   })
-})
+}) {% endcomment %}
 </script>
 
 
