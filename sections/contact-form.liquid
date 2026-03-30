@@ -44,20 +44,24 @@ fetch('/?sections=image-banner')
 
 
 
-  {% comment %} function handleResponse() {
+function handleResponse() {
   // 将解析后的数据保存到变量
   var data = JSON.parse(this.responseText);
   // 打印整个数据对象
   console.log(data);
   // 如果只想打印特定 section 的内容
-  console.log(data['featured-blog']);
+  {% comment %} console.log(data['featured-blog']); {% endcomment %}
+  var container = document.getElementById('shopify-module-container');
+    if (container && data['image-banner']) {
+      container.innerHTML = data['image-banner'];
+    }
   }
 
   const request = new XMLHttpRequest();
 
   request.addEventListener('load', handleResponse);
-  request.open('GET', '/?sections=featured-blog', true);
-  request.send(); {% endcomment %}
+  request.open('GET', '/?sections=image-banner', true);
+  request.send();
 
 
 
