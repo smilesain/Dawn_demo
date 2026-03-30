@@ -19,7 +19,7 @@
   <button data-render class="button">Render</button>
 </div>
 
-<div class="shopify-module-container">
+<div id="shopify-module-container">
 
 </div>
 
@@ -52,7 +52,7 @@ function handleResponse() {
   // 如果只想打印特定 section 的内容
   {% comment %} console.log(data['featured-blog']); {% endcomment %}
   var container = document.getElementById('shopify-module-container');
-    if (container) {
+    if (container && data['image-banner']) {
       container.innerHTML = data['image-banner'];
     }
   }
