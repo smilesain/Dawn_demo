@@ -20,7 +20,12 @@
 </div>
 <script>
   function handleResponse() {
-    JSON.parse(this.responseText);
+  // 将解析后的数据保存到变量
+  var data = JSON.parse(this.responseText);
+  // 打印整个数据对象
+  console.log(data);
+  // 如果只想打印特定 section 的内容
+  console.log(data['image-banner']);
   }
 
   const request = new XMLHttpRequest();
