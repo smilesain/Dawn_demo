@@ -13,6 +13,25 @@
     }
   }
 {%- endstyle -%}
+
+
+<div class="basic-render">
+  <button data-render class="button">Render</button>
+</div>
+<script>
+const button = document.querySelector('[data-render]');
+button.addEventListener('click', ()=>{
+  fetch(`${window.Shopify.routes.root}?sections=featured-blog`)
+  .then((response)=>{
+    return response.json()
+  })
+  .then((data)=>{
+    console.log(data)
+  })
+})
+</script>
+
+
 <div>
   Time: {{ customer.metafields.custom.clock_in.value }}
 </div>
